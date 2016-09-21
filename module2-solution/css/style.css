@@ -1,0 +1,112 @@
+/**
+  Austin Wheeler, Assignment 2
+  JHU AJAX Fall 2016
+**/
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+div {
+  position: relative;
+}
+
+p.content {
+  border: 2px solid black;
+  background-color: silver;
+  height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-top: 35px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  cursor: s-resize;
+}
+
+p.category {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  padding: 5px;
+  font-weight: bold;
+  border: 2px solid black;
+  width: 25%;
+  text-align: center;
+}
+
+p.chicken {
+  color: black;
+  background-color: darksalmon;
+}
+
+p.beef {
+  color: white;
+  background-color: indianred;
+}
+
+p.sushi {
+  color: black;
+  background-color: wheat;
+}
+
+/** Simple Responsive Framework **/
+.row {
+  width: 100%;
+}
+
+/** Desktop format **/
+@media (min-width: 992px){
+  .col-lg-4 {
+    float: left;
+  }
+  .col-lg-4 {
+    width: 33%;
+  }
+  h1 {
+    text-align: center;
+  }
+  h1.lg_title:before {
+    content: "Our Menu";
+  }
+}
+
+/** Tablet format **/
+@media (min-width: 768px) and (max-width: 991px){
+  .col-md-6, .cold-md-12{
+    float: left;
+
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .cold-md-12{
+    width: 100%;
+  }
+  h1 {
+      text-align: center;
+  }
+  h1.md_title:before {
+    content: "Our Menu";
+  }
+}
+
+/** Mobile format **/
+@media (max-width: 767px){
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  h1 {
+      text-align: left;
+      margin-left: 10px;
+  }
+  h1.sm_title:before {
+    content: "Categories";
+  }
+}
