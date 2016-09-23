@@ -126,7 +126,6 @@ p.sushi {
   }
   h1 {
       text-align: left;
-      margin-left: 10px;
   }
   h1.sm_title:before {
     font-family: fantasy;
