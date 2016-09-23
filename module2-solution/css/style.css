@@ -11,17 +11,22 @@ div {
   position: relative;
 }
 
-p.content {
+.details {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
   border: 2px solid black;
   background-color: silver;
   height: 200px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding-top: 35px;
+}
+
+p.content {
+  position: relative;
+  margin: 0;
   padding-left: 15px;
   padding-right: 35px;
-  padding-bottom: 15px;
+  width: 100%;
+  height: 160px;
   overflow: hidden;
 }
 
@@ -29,17 +34,6 @@ p.content:hover {
   overflow-y:scroll;
   cursor: s-resize;
   padding-right: 20px;
-}
-
-p.category {
-  position: absolute;
-  top: 0px;
-  right: 10px;
-  padding: 5px;
-  font-weight: bold;
-  border: 2px solid black;
-  width: 25%;
-  text-align: center;
 }
 
 p.chicken {
@@ -76,13 +70,23 @@ p.sushi {
   h1.lg_title:before {
     content: "Our Menu";
   }
+  p.category {
+    float: right;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-weight: bold;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 25%;
+    text-align: center;
+  }
 }
 
 /** Tablet format **/
 @media (min-width: 768px) and (max-width: 991px){
   .col-md-6, .cold-md-12{
     float: left;
-
   }
   .col-md-6 {
     width: 50%;
@@ -96,6 +100,17 @@ p.sushi {
   h1.md_title:before {
     content: "Our Menu";
   }
+  p.category {
+    float: right;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-weight: bold;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 25%;
+    text-align: center;
+  }
 }
 
 /** Mobile format **/
@@ -106,11 +121,45 @@ p.sushi {
   .col-sm-12 {
     width: 100%;
   }
+  .details {
+    height: 200px;
+  }
   h1 {
       text-align: left;
       margin-left: 10px;
   }
   h1.sm_title:before {
+    font-family: fantasy;
+    font-size: smaller;
     content: "Categories";
+  }
+
+  p.category {
+    border-bottom: 2px solid black;
+    clear: both;
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  p.content{
+    height: 140px;
+  }
+  p.chicken:after{
+    content: ": Definitely not organic. Definitely cooked how you want it. Burned";
+  }
+  p.beef:after{
+    content: ": Definitely maybe organic. Recently slaughtered. As fresh as fresh gets.";
+  }
+  p.sushi:after{
+    content: ": We'll serve it flopping on your plate if you want it that way.";
+  }
+}
+/** Special case for when category/title goes past 2 rows... **/
+@media (max-width: 375px){
+  p.content{
+    height: 100px;
   }
 }
