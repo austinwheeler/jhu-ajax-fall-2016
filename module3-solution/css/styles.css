@@ -1,11 +1,13 @@
 /* Austin Wheeler, JHU-AJAX Fall 2016
    Assignment 3
 */
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
 
 body {
   padding-top: 70px;
-  padding-right: 30px;
-  padding-left: 30px;
 }
 
 .navbar {
@@ -56,8 +58,7 @@ body {
   color: black;
   background-color: grey;
   border: 1px solid black;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .menu-item p{
@@ -66,4 +67,14 @@ body {
 
 .menu-item h3{
   font-weight: bold;
+}
+
+.menu-item a{
+  color: #282DB7;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.menu-item a:link{
+  text-decoration: underline;
 }
