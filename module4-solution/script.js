@@ -1,3 +1,5 @@
+// Austin Wheeler, JHU AJAX Fall 2016, Assignment 4
+
 // *******************************
 // START HERE IF YOU WANT A MORE CHALLENGING STARTING POINT FOR THIS ASSIGNMENT
 // *******************************
