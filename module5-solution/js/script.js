@@ -1,3 +1,5 @@
+// Austin Wheeler, JHU AJAX, Fall 2016
+
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
@@ -97,10 +99,13 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
+      // Get the category short name and add quotes for load method
       var chosenCategoryShortName = "'" + chooseRandomCategory(categories).short_name + "'";
+      // Get the HTML to insert into the main content
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml,
                                          "randomCategoryShortName",
                                           chosenCategoryShortName);
+      // Do the HTML insertion
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
