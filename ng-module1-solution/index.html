@@ -5,15 +5,15 @@
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
     <style>body { font-size: 1.3em; }</style>
-    <title>Lunch Calculator</title>
+    <title>Lunch Check</title>
   </head>
-  <body ng-app="LunchCalculator">
-    <h1>Lunch Calculator</h1>
-    <div ng-controller="LunchCaculatorController">
+  <body ng-app="LunchCheck">
+    <h1>Lunch Check</h1>
+    <div ng-controller="LunchCheckController">
       <div>
         Your lunch:
         <input type="text"
-          ng-model="lunch">
+          ng-model="lunch"> (empty items e.g. ",," do not count towards total!)
       </div>
       <div><button ng-click="displayResult()">Check If Too Much</button><br>
         <span ng-style="ansStyle">{{result}}</span>

@@ -1,11 +1,14 @@
 // Austin Wheeler, JHU-AJAX Fall 2016
-
 (function () {
 'use strict';
 
-angular.module('LunchCalculator', [])
+angular.module('LunchCheck', [])
 
-.controller('LunchCaculatorController', function ($scope) {
+.controller('LunchCheckController', LunchCheckController);
+
+LunchCheckController.$inject = ['$scope'];
+
+function LunchCheckController($scope) {
   $scope.lunch = "";
   $scope.result = "";
   $scope.ansStyle= "";
@@ -50,8 +53,6 @@ angular.module('LunchCalculator', [])
     var numItems = lunchItems.length;
     return numItems;
   }
-
-});
-
+};
 
 })();
