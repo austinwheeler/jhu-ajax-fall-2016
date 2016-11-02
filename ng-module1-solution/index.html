@@ -9,14 +9,15 @@
     </style>
     <title>Lunch Check</title>
   </head>
-
   <body ng-app="LunchCheck">
     <div class="container">
       <h1>Lunch Checker</h1>
       <div class="form-group" ng-controller="LunchCheckController">
           Your lunch:
-          <input type="text"
+          <input id="lunch-menu"
+            type="text"
             ng-model="lunch"
+            placeholder="list comma separated dishes you usually have for lunch"
             class="form-control"> (empty items e.g. ",," do not count towards total!)
         <div class="form-group" >
           <button class="btn btn-default" ng-click="displayResult()">Check If Too Much</button>
