@@ -32,7 +32,7 @@
          <ul>
            <li ng-repeat="item in toBuy.items">
              Buy {{ item.quantity }} {{ item.name }}
-             <button ng-click="toBuy.markBought($index);"><span>Bought</span></button>
+             <button ng-click="toBuy.markBought($index);"><span class="glyphicon glyphicon-ok"></span>Bought</button>
            </li>
          </ul>
        <div ng-if="!toBuy.items.length" class="emptyMessage">Everything is bought!</div>

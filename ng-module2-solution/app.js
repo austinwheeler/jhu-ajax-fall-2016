@@ -55,6 +55,4 @@ function ShoppingListCheckOffService() {
     return itemsBought;
   };
 }
-
-
 })();
