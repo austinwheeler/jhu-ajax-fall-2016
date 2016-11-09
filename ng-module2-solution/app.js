@@ -10,11 +10,11 @@ angular.module('ShoppingListCheckOff', [])
 // Controller for items to buy
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
-  var toBuyList = this;
+  var toBuy = this;
 
-  toBuyList.items = ShoppingListCheckOffService.getItemsToBuy();
+  toBuy.items = ShoppingListCheckOffService.getItemsToBuy();
 
-  toBuyList.markBought = function (itemIndex) {
+  toBuy.markBought = function (itemIndex) {
     ShoppingListCheckOffService.markItemBought(itemIndex);
   };
 }
@@ -22,9 +22,9 @@ function ToBuyController(ShoppingListCheckOffService) {
 // Controller for Already Bought Items
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
-  var boughtList = this;
+  var bought = this;
 
-  boughtList.items = ShoppingListCheckOffService.getBoughtItems();
+  bought.items = ShoppingListCheckOffService.getBoughtItems();
 }
 
 // Service to handle the two lists
