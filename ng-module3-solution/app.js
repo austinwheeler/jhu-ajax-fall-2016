@@ -5,7 +5,7 @@ angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController',NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
 .directive('foundItems', FoundItemsDirective)
-.constant('ApiPath', "http://davids-restaurant.herokuapp.com/menu_items.json");
+.constant('ApiPath', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
 function FoundItemsDirective() {
   var ddo = {
@@ -24,6 +24,21 @@ function FoundItemsDirective() {
 
 function NarrowItDownDirectiveController(){
   var narrowCtrl = this;
+}
+
+NarrowItDownController.$inject = ['MenuSearchService'];
+function NarrowItDownController(MenuSearchService){
+  var narrowCtrl = this;
+  narrowCtrl.searchTerm = "";
+  narrowCtrl.found = [];
+
+  narrowCtrl.narrowItDown = function(){
+    narrowCtrl.found = MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm);
+  };
+
+  narrowCtrl.removeItem = function(itemIndex){
+    narrowCtrl.found.splice(itemIndex, 1);
+  }
 }
 
 //Menu Search service
@@ -45,20 +60,5 @@ function MenuSearchService($http, ApiPath) {
       return foundItems;
     });// end http request and processing
   };// end getMatchedMenuItems
-}
-
-NarrowItDownController.$inject = ['MenuSearchService'];
-function NarrowItDownController(MenuSearchService){
-  var narrowCtrl = this;
-  narrowCtrl.searchTerm = "";
-  narrowCtrl.found = [];
-
-  narrowCtrl.narrowItDown = function(){
-    narrowCtrl.found = MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm);
-  };
-
-  narrowCtrl.removeItem = function(itemIndex){
-    narrowCtrl.found.splice(itemIndex, 1);
-  }
 }
 })();

@@ -1,10 +1,11 @@
-<h3>{{narrowCtrl.searchTerm}}<h3>
-  <ul>
-    <li ng-repeat="item in narrowCtrl.found">
-      {{item.name}}, {{item.short_name}}, {{item.description}}
-      <button ng-click="narrowCtrl.onRemove({index: $index});">Don't want this one!</button>
-    </li>
-  </ul>
-  <div class="error" ng-if="narrowCtrl.found.length == 0">
-    Nothing found!
-  </div>
+<div class="form-group">
+<h3>{{ narrowCtrl.found.length }}</h3>
+<h3>{{ narrowCtrl.searchTerm }}</h3>
+<ul>
+  <li ng-repeat="item in narrowCtrl.found">
+    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+    <button ng-click="narrowCtrl.onRemove({index: $index});">Don't want this one!</button>
+  </li>
+</ul>
+<br>
+</div>
