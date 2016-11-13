@@ -43,15 +43,18 @@ function NarrowItDownController(MenuSearchService){
   var narrowCtrl = this;
   narrowCtrl.searchTerm = ""; // the search term from the user
   narrowCtrl.searchMade = false; // whether or not a search has been made
-  narrowCtrl.found = MenuSearchService.getItems(); // the found items
+  narrowCtrl.found = []; // the found items
 
   narrowCtrl.narrowItDown = function(){
-    MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm);
+    var promise = MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm);
+    promise.then(function(foundItems){
+      narrowCtrl.found = foundItems;
+    });
     narrowCtrl.searchMade = true;
   };
 
   narrowCtrl.removeItem = function(itemIndex){
-    MenuSearchService.removeItem(itemIndex);
+    narrowCtrl.found.splice(itemIndex, 1);
   };
 }
 
@@ -59,32 +62,23 @@ function NarrowItDownController(MenuSearchService){
 MenuSearchService.$inject = ['$http', 'ApiPath'];
 function MenuSearchService($http, ApiPath) {
   var service = this;
-  // list of items found by the search service
-  var foundItems = [];
+
   // method to perform the search and update the list
   service.getMatchedMenuItems = function(searchTerm){
-    foundItems.length = 0;
-    if(searchTerm == ""){
-      return;
-    }
     return $http({
       method: "GET",
       url: (ApiPath)
     }).then(function(result){
-      for(var i = 0; i < result.data.menu_items.length; i++){
-        if(result.data.menu_items[i].description.toLowerCase().includes(searchTerm.toLowerCase())){
-          foundItems.push(result.data.menu_items[i])
-        }
-      }// end loop over data
+      var foundItems = [];
+      if(searchTerm != ""){
+        for(var i = 0; i < result.data.menu_items.length; i++){
+          if(result.data.menu_items[i].description.toLowerCase().includes(searchTerm.toLowerCase())){
+            foundItems.push(result.data.menu_items[i])
+          }
+        }// end loop over data
+      }
+      return foundItems;
     });// end http request and processing
   };// end getMatchedMenuItems
-
-  service.getItems = function(){
-    return foundItems;
-  };
-
-  service.removeItem = function(index){
-    foundItems.splice(index, 1);
-  };
 }
 })();
