@@ -9,6 +9,10 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.result {
+  margin: 0 auto;
+  padding-top: 50px;
+}
 .loader {
   display: none;
   margin-left: 5px;
