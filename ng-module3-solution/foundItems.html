@@ -1,9 +1,19 @@
 <div class="result">
-  <ul>
-    <li ng-repeat="item in narrowCtrl.found">
-      {{ item.name }}, {{ item.short_name }}, {{ item.description }}
-      <button ng-click="narrowCtrl.onRemove({index: $index});">Don't want this one!</button>
-    </li>
-  </ul>
-  <div ng-if="narrowCtrl.displayError()">Nothing to display!</div>
+  <table class="table table-striped" ng-if="narrowCtrl.found.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+        <th>Remove?</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="item in narrowCtrl.found">
+      <td>{{ item.name }}</td>
+      <td> {{ item.short_name }}</td>
+      <td>{{ item.description }}</td>
+      <td><button ng-click="narrowCtrl.onRemove({index: $index});">Don't want this one!</button></td>
+    </tr>
+  </table>
+  <div class="error" ng-if="narrowCtrl.displayError()">Nothing found!</div>
 </div>

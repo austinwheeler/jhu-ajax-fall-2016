@@ -7,6 +7,7 @@ angular.module('NarrowItDownApp', [])
 .directive('foundItems', FoundItemsDirective)
 .constant('ApiPath', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
+// Directive for found items
 function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
@@ -23,9 +24,10 @@ function FoundItemsDirective() {
   return ddo;
 }
 
+//Directive controller
 function NarrowItDownDirectiveController(){
   var narrowCtrl = this;
-
+  // Whether or not to display the "empty" text
   narrowCtrl.displayError = function(){
     if(narrowCtrl.searchMade &&
       (narrowCtrl.searchTerm.length >= 0) && (narrowCtrl.found.length == 0)){
@@ -35,12 +37,13 @@ function NarrowItDownDirectiveController(){
   }
 }
 
+// Controller for the main search portion of the application
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
   var narrowCtrl = this;
-  narrowCtrl.searchTerm = "";
-  narrowCtrl.searchMade = false;
-  narrowCtrl.found = MenuSearchService.getItems();
+  narrowCtrl.searchTerm = ""; // the search term from the user
+  narrowCtrl.searchMade = false; // whether or not a search has been made
+  narrowCtrl.found = MenuSearchService.getItems(); // the found items
 
   narrowCtrl.narrowItDown = function(){
     MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm);
@@ -56,8 +59,9 @@ function NarrowItDownController(MenuSearchService){
 MenuSearchService.$inject = ['$http', 'ApiPath'];
 function MenuSearchService($http, ApiPath) {
   var service = this;
-
+  // list of items found by the search service
   var foundItems = [];
+  // method to perform the search and update the list
   service.getMatchedMenuItems = function(searchTerm){
     foundItems.length = 0;
     if(searchTerm == ""){
@@ -67,8 +71,6 @@ function MenuSearchService($http, ApiPath) {
       method: "GET",
       url: (ApiPath)
     }).then(function(result){
-      console.log("processing result with search term:" + searchTerm + ":");
-
       for(var i = 0; i < result.data.menu_items.length; i++){
         if(result.data.menu_items[i].description.toLowerCase().includes(searchTerm.toLowerCase())){
           foundItems.push(result.data.menu_items[i])
