@@ -1,7 +1,7 @@
 (function () {
 'use strict';
 
-angular.module('Data')
+angular.module('MenuApp')
 .controller('ItemsController', ItemsController);
 
 
