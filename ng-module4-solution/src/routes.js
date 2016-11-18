@@ -22,8 +22,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   //Category list page
   .state('categoryList', {
     url: '/category-list',
-    templateUrl: 'src/menuapp/templates/categories.template.html',
-    controller: 'CategoriesController as categories',
+    templateUrl: 'src/menuapp/templates/main-categories.template.html',
+    controller: 'CategoriesController as categoriesCtrl',
     resolve: {
       categoryList: ['MenuDataService', function (MenuDataService) {
         return MenuDataService.getAllCategories();
@@ -34,7 +34,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Item detail
   .state('items', {
     url: '/items/{categoryShortName}',
-    templateUrl: 'src/menuapp/templates/items.template.html',
+    templateUrl: 'src/menuapp/templates/main-items.template.html',
     controller: 'ItemsController as itemList',
     params: {
       categoryShortName: null
