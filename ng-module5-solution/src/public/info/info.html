@@ -1,6 +1,6 @@
 <div id="main-content" class="container info" ng-controller="RegistrationController as reg">
-  <a ui-sref="public.signup" ng-if="!reg.isRegistered()">
-    Not signed up yet. Sign up now!
-  </a>
+  <span ng-if="!reg.isRegistered()">Not signed up yet.
+    <a ui-sref="public.signup">Sign up now!</a>
+  </span>
   <user-info ng-if="reg.isRegistered()" user="reg.getUser()" item="reg.getFavorite()"></user-info>
 </div>

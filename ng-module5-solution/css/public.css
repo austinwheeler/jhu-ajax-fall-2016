@@ -5,11 +5,16 @@
 }
 
 .info {
+  color: #FFF;
+}
+
+.info input{
   color: #000;
 }
 
-.info a, h3{
+.info a{
   color: #FFF;
+  font-weight: bolder;
 }
 
 .info tr{
