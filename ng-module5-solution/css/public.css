@@ -4,6 +4,41 @@
   border: 2px solid #3F0C1F;
 }
 
+.info {
+  color: #000;
+}
+
+.info a, h3{
+  color: #FFF;
+}
+
+.info tr{
+  background-color: #f6b319;
+  font-weight: bold;
+  color: #951C49;
+}
+
+.info  legend {
+  color: #FFF;
+  font-weight: bold;
+}
+.info input {
+  width: 250px;
+  margin-bottom: 10px;
+}
+.info button {
+  background-color: #f6b319;
+  color: #951C49;
+  font-weight: bold;
+  width: 250px;
+}
+
+.error_text{
+  color: white;
+  font-weight: bolder;
+  font-style: italic;
+}
+
 #menu-tile, #specials-tile, #map-tile {
   height: 250px;
   width: 100%;

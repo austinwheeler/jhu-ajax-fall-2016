@@ -1,0 +1,26 @@
+<h3>Your Information:</h3>
+<table class="table table-hover">
+  <tr>
+    <td>First Name</td>
+    <td> {{$ctrl.user.firstName}}</td>
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td> {{$ctrl.user.lastName}}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td> {{$ctrl.user.email}}</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td> {{$ctrl.user.phone}}</td>
+  </tr>
+  <tr>
+    <td>Favorite Dish</td>
+    <td>
+       <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.item.short_name}}.jpg" alt="{{$ctrl.item.name}}">
+       {{$ctrl.item.name}} <br>
+       Description: {{$ctrl.item.description}}
+     </td>
+</table>

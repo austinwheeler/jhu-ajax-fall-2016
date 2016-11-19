@@ -1,0 +1,54 @@
+<div id="main-content" class="container info" ng-controller="RegistrationController as reg">
+  <fieldset ng-if="!reg.isRegistered()">
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="First Name"
+          ng-model="reg.user.firstName"
+          required>
+          <span class="error_text" ng-if="regForm.firstName.$invalid && regForm.firstName.$touched">
+            Please provide your first name
+          </span>
+          <br>
+
+        <input type="text" name="lastName" placeholder="Last Name"
+          ng-model="reg.user.lastName"
+          required>
+          <span class="error_text" ng-if="regForm.lastName.$invalid && regForm.lastName.$touched">
+            Please provide your last name
+          </span>
+          <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required>
+          <span class="error_text" ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span class="error_text" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+          <input type="text" name="dish" placeholder="Favorite Menu Item (short name)"
+            ng-model="reg.user.dish"
+            required>
+            <span class="error_text" ng-if="reg.badItem">
+              No such menu number exists
+            </span>
+            <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit()">Submit</button>
+      </form>
+    </fieldset>
+    <a ui-sref="public.info" ng-if="reg.isRegistered()">
+      Your information has been saved. Click here to view your information
+    </a>
+</div>
