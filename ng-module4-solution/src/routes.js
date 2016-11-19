@@ -1,3 +1,4 @@
+// Austin Wheeler JHU-AJAX Fall 2016
 (function () {
 'use strict';
 
@@ -31,7 +32,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
-  // Item detail
+  // Item list page
   .state('items', {
     url: '/items/{categoryShortName}',
     templateUrl: 'src/menuapp/templates/item-list.template.html',
