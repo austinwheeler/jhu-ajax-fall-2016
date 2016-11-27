@@ -9,7 +9,6 @@ function RegistrationController(RegistrationService) {
   reg.submit = function () {
     RegistrationService.validateMenuItem(reg.user.dish).then(function(response){
       if(response == true){
-        console.log("good!");
         reg.badItem = false;
         reg.completed = true;
         RegistrationService.setUser(reg.user);
